@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Form with Pyscript</h1>
+        <hr>
+        <hr>
+        <form action="">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <label for="">First Name</label>
+                    <input type="text" id="first_name" class="form-control">
+                </div>
+                <div class="col-md-12">
+                    <label for="">Last Name</label>
+                    <input type="text" id="last_name" class="form-control">
+                </div>
+                <div class="col-md-12">
+                    <label for="">Email</label>
+                    <input type="text" id="email" class="form-control">
+                </div>
+                <hr>
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-success btn-block btn-lg ms-2" id="creat_account">Create Account</button>
+                </div>
+            </div>
+            <div class="row mt-5 text-center justify-content-center">
+                <div class="col-6">
+                    <ul id="details">
+                        {% for data in details %}
+                            <hr>
+                            <li>{{ data.first_name }}  {{ data.last_name }}  {{ data.email }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </form>
+    </div>
+{% endblock content %}
